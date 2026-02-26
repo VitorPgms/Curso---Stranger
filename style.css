@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Benguiat";
+  src: url(fontes/Benguiat\ Bold.ttf);
+}
+
+body {
+    background-color: black;
+    color: #f4f3f3;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden; /*Tira a rolagem para os lados*/
+}
+
+section {
+    width: 100%;
+    display: flex;
+    padding: 7vw;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    gap: 12px;
+    border: none;
+    outline: none;
+    padding: 16px 0px;
+    border-bottom: 1px solid white;
+}
+
+h2 {
+        font-size: 40px;
+        font-weight: 500;
+}
+
+ul {
+        list-style-type: none;
+    }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4vw; /*vw é mais responsivo*/
+    width: 100%;
+    position: absolute;
+    z-index: 9; /* o index serve para mover o elemento para frente ou para tras*/
+}
+
+.bgMonstro {
+    background-image: url(imagens/bg-sec2.webp);
+    background-position: center;
+    background-size: cover;
+}
+
+.hero {
+    align-items: center; /*posição vertical*/
+    justify-content: space-between; /*posição horizontal*/
+    background-image: url(imagens/hero.webp);
+    background-position: 50% 0%;
+    background-size: cover;
+    padding: 0 7vw 7vw 7vw;
+    height: 100vh;
+
+    .esquerda, .direita {
+        width: 30%;
+    }
+
+    .esquerda {
+        h3 {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 4px;
+        }
+
+        h1 {
+            font-size: 3.7vw;
+            font-family: "Benguiat";
+        }
+    }
+
+    .direita {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        p {
+            font-size: 2vw;
+            margin-bottom: 32px;
+            text-align: end
+        };
+
+    }
+}
+
+.city {
+    flex-direction: column;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+
+    .cardsCity {
+        margin-top: 52px;
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            padding: 20px;
+            background-image: url(imagens/card1.webp);
+            background-size: cover;
+            background-position: center;
+            width: 32%;
+            aspect-ratio: 16/9;
+        }
+
+        .card:nth-child(2) {
+            background-image: url(imagens/card2.webp);
+        }
+
+        .card:nth-child(3) {
+            background-image: url(imagens/card3.webp);
+        }
+        
+    }
+}
+
+.secaoDepoimento {
+    flex-direction: column;
+
+    .logotipos {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .depoimentos {
+       display: flex;
+       justify-content: space-between;
+       margin-top: 62px;
+
+
+       .depoimento {
+            width: 31%;
+       }
+    }
+}
+
+.secaoObrigado {
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+        margin-bottom: 40px;
+    }
+
+    ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("imagens/bg-footer.webp");
+  background-size: cover;
+  background-position: center;
+
+  .conteudoFooter {
+    display: flex;
+    width: 100%;
+    padding: 7vw;
+
+    .logoFooter {
+      width: 30%;
+      h3 {
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 4px;
+      }
+      h2 {
+        font-size: 3.7vw;
+        font-family: "Benguiat";
+      }
+    }
+
+    .secoesFooter {
+      display: flex;
+      flex: 1;
+      justify-content: end;
+      gap: 6%;
+      align-items: end;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+
+      .social {
+        ul {
+          display: flex;
+          gap: 12px;
+        }
+      }
+    }
+  }
+
+  .logotiposFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4vw;
+  }
+
+  .textoInfinito {
+    width: max-content;
+    display: flex;
+
+    h3 {
+      color: rgb(191, 191, 191);
+      font-size: 12vw;
+      font-family: "Benguiat", sans-serif;
+      mix-blend-mode: color-dodge;
+      animation: textoInfinito 10s infinite linear;
+      padding-left: 8vw;
+    }
+  }
+}
+
+@keyframes textoInfinito {
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*Media Querie*/
+
+@media (max-width: 1500px) {
+    .card {
+        
+    }
+}
