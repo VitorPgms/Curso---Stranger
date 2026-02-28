@@ -9,11 +9,14 @@
   src: url(fontes/Benguiat\ Bold.ttf);
 }
 
+html , body {
+        overflow-x: hidden !important; /*Tira a rolagem para os lados*/
+}
+
 body {
     background-color: black;
     color: #f4f3f3;
     font-family: "Poppins", sans-serif;
-    overflow-x: hidden; /*Tira a rolagem para os lados*/
 }
 
 section {
@@ -62,20 +65,39 @@ header {
 .hero {
     align-items: center; /*posição vertical*/
     justify-content: space-between; /*posição horizontal*/
-    background-image: url(imagens/hero.webp);
     background-position: 50% 0%;
     background-size: cover;
     padding: 0 7vw 7vw 7vw;
     height: 100vh;
+    position: relative;
+
+    picture {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+    }
+
 
     .esquerda, .direita {
         width: 30%;
+        z-index: 2;
     }
 
     .esquerda {
         h3 {
-            font-size: 24px;
-            font-weight: 500;
+            font-size: 20px;
+            font-weight: 400;
             letter-spacing: 4px;
         }
 
@@ -97,6 +119,17 @@ header {
         };
 
     }
+}
+
+.hero:before{ /*Assim inserimos uma "Div" atraves do CSS*/
+  content: "";
+  background: linear-gradient(180deg, rgba(12, 1, 2, 0.00) 0%, #0C0102 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
 }
 
 .city {
@@ -191,7 +224,7 @@ footer {
     .logoFooter {
       width: 30%;
       h3 {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 500;
         letter-spacing: 4px;
       }
@@ -253,8 +286,168 @@ footer {
 
 /*Media Querie*/
 
-@media (max-width: 1500px) {
-    .card {
-        
+@media (max-width: 1500px) { /* mais especifico com o caminho da mudança*/
+    .city {
+        padding: 4vw;
+    }
+}
+
+@media (max-width: 1400px) {
+    .city .cardsCity .card {
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 4vw;
+    }
+
+
+    h2 {
+        font-size: 6vw;
+    }
+
+     header h2 {
+        font-size: 28px;
+    }
+
+
+    .hero {
+        flex-direction: column;
+        padding: 26% 4vw 0;
+
+        .esquerda, .direita {
+            width: 100%;
+        }
+
+        .esquerda {
+            h3, h1 {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 10vw;
+            }
+        }
+
+        .direita {
+            align-items: start;
+            p {
+                font-size: 5.5vw;
+                text-align: start;
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .city {
+        margin-top: 80px;
+
+        button {
+            display: none;
+        }
+
+        .cardsCity {
+            margin-top: 20px;
+            flex-direction: column;
+            gap: 20px;
+
+            .card {
+                width: 100%;
+            }
+        }
+    }
+
+    .secaoDepoimento {
+        .logotipos {
+
+
+            img:nth-child(1), img:nth-child(3) {
+                width: 20%;
+            }
+            img:nth-child(2) {
+                width: 40%;
+            }
+        }
+
+        .depoimentos {
+            flex-direction: column;
+            gap: 48px;
+
+            .depoimento {
+                width: 100%;
+            }
+        }
+    }
+
+    .secaoObrigado {
+        margin:  40px 0px 60px;
+        h2 {
+            text-align: center;
+        }
+
+        ul {
+            width: max-content;
+            gap: 32px;
+            animation: textoInfinito 15s infinite linear;
+        }
+    }
+
+    footer {
+        padding-top: 40px;
+
+        .conteudoFooter {
+            padding: 4vw;
+            flex-direction: column;
+
+            .logoFooter {
+            width: 100%;
+
+                h2, h3 {
+                    text-align: center;
+                }
+
+                h2 {
+                    font-size: 12vw;
+                }
+            }
+
+            .secoesFooter {
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: start;
+                
+                .social {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    margin: 40px 0px;
+                }
+
+
+                .parceiro {
+                    width: 50%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .logotiposFooter {
+            margin-top: 40px;
+        }
+
+
+        .textoInfinito h3{
+            font-size: 20vw;
+        }
+
     }
 }
